@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoMA</title>
+
+    <!-- 웹폰트 연결 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <!-- font-family: "Anton", sans-serif; -->
+
+    <!-- css연결 -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+
+
+
+</head>
+
+<body>
+    <div id="wrap">
+
+        <div id="header">
+            <div class="inner_header">
+                <ul>
+                    <li>
+                        <h1><a href="#">MoMA</a></h1>
+                    </li>
+                    <li><a href="#">Log in</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="content">
+             <div id="page">
+                <img src="./images/MoMA.png" alt="page">
+            </div>
+            
+            <div id="sticky">
+                <div class="special">
+                    <h3>특별 상품</h3>
+                    <p>날짜/시간을 선택하여 예매를 진행하세요.</p>
+                    <div><a href="#">예매하기</a></div>
+                </div>
+            </div>
+           
+        </div>
+
+
+
+        <div id="footer">
+            <a href="#">MoMA</a>
+            <p>© 2026 The Museum of Modern Art</p>
+        </div>
+
+    </div>
+
+
+
+     <p class="topBtn"></p>
+
+       <!-- jQuery 오픈소스 연결 -->
+
+    <script src="./js/jquery-4.0.0.min.js"></script>
+
+
+    <!-- 제어 구문 작성 -->
+     <script>
+        // 코드 실행문
+        $(function(){
+            // 맨 위로 부드럽게 이동
+            // 1. .topBtn을 클릭하면, 
+            $(".topBtn").click(function(){
+                // html, body한테 애니메이션을 준다.
+            $("html, body").animate({
+                // 스크롤 세로 위치 = 0
+                scrollTop:'0'
+
+                // 시간은 1초동안
+                 },1000);
+            });
+
+            // 일정 구간부터 버튼 나타나게 하기
+            // .topBtn을 숨긴다.
+
+            $(".topBtn").hide();
+            
+            // 스크롤 하면, 
+            $(window).scroll(function(){
+                // 스크롤 위치가 100보다 크면 보이고, 100보다 작으면 사라진다.
+
+
+                // if-else 조건문
+                // if(조건) : 주어진 조건식이 true(참)일 때, if문 안의 코드를 실행한다.
+                // else : 앞선 if문의 조건이 flase(거짓)일 때, else문 안의 코드를 실행한다. 
+                // this : 현재 객체(여기서는 window)를 지칭함.
+                // scrollTop : 현재 세로 스크롤이 얼마나 내려갔는지(픽셀 단위로 반환)
+                if ($(this).scrollTop() > 100) {
+                    $(".topBtn").fadeIn()
+                } else{
+                    $(".topBtn").fadeOut()
+                }
+            });
+        });
+
+     </script>
+</body>
+
+</html>
